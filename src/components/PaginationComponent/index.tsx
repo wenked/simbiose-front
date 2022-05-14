@@ -23,7 +23,7 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({
 				if (page === "...") {
 					return <BsThreeDots color="grey" />;
 				}
-
+				console.log(page, currentPage);
 				return (
 					<PageButton
 						key={index}

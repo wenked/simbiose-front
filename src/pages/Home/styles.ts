@@ -4,6 +4,10 @@ interface ButtonContainerProps {
 	direction: "back" | "next";
 }
 
+interface FooterContainerProps {
+	seeMore: boolean;
+}
+
 export const ButtonContainer = styled.div<ButtonContainerProps>`
 	${({ direction }) =>
 		direction === "back"
@@ -29,7 +33,6 @@ export const BackButton = styled.button`
 		&:disabled {
 			cursor: not-allowed;
 			opacity: 0.6;
-			background-color: red;
 		}
 	}
 `;
@@ -45,7 +48,6 @@ export const NextButton = styled.button`
 		&:disabled {
 			cursor: not-allowed;
 			opacity: 0.6;
-			background-color: red;
 		}
 	}
 `;
@@ -59,4 +61,33 @@ export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	margin: 0 auto;
+	width: 1350px;
+`;
+
+export const FooterContainer = styled.div<FooterContainerProps>`
+	${({ seeMore }) =>
+		seeMore &&
+		css`
+			justify-content: flex-end;
+		`}
+
+	display: flex;
+	flex-direction: row;
+`;
+
+export const SeeMoreButton = styled.button`
+	display: flex;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+`;
+
+export const Title = styled.h1`
+	color: #008b8b;
+	margin-left: 130px;
+	margin-top: 20px;
+	font-weight: 400;
 `;

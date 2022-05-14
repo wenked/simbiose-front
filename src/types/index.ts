@@ -48,7 +48,3 @@ export interface RounetPaginatedData {
 	total_pages: number;
 	has_more: boolean;
 }
-
-export interface RouanetData {
-	data: Rounet[];
-}

@@ -1,9 +1,9 @@
 import api from "./api";
 
-import { PaginatedRounetArgs, RouanetData, RounetPaginatedData } from "../types";
+import { PaginatedRounetArgs, RounetPaginatedData } from "../types";
 
-export const getAllRounetData = async (): Promise<RouanetData> => {
-	const { data } = await api.get<RouanetData>("/rouanet");
+export const getAllRounetData = async (): Promise<RounetPaginatedData> => {
+	const { data } = await api.get<RounetPaginatedData>("/rouanet");
 	return data;
 };
 
