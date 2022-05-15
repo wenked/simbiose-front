@@ -45,7 +45,7 @@ const Home: React.FC<Props> = () => {
 				<div>Loading...</div>
 			) : (
 				<Container>
-					<Title>Ver outros projetos do proponente</Title>
+					<Title>Ver outros projetos do Proponente</Title>
 					<ContentContainer>
 						{!seeMore && (
 							<ButtonContainer direction="back">
