@@ -85,11 +85,24 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
 	padding: 1rem;
-	font-weight: bold;
+	font-weight: 400;
 	font-size: 1rem;
 	background-color: #e5e4e2;
 	color: #808080;
 	border: none;
 	width: 15rem;
+	transition: 0.3s;
 	cursor: pointer;
+
+	&:hover {
+		background-color: #787878;
+		color: white;
+	}
+
+	&:active {
+		background-color: #787878;
+		color: white;
+
+		transform: translateY(4px);
+	}
 `;
