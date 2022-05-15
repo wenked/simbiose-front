@@ -59,7 +59,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
 					</Values>
 				</ValuesContainer>
 				<ButtonContainer>
-					<Button onClick={() => setIsLiked(!isLiked)}>ADICIONAR</Button>
+					<Button onClick={() => {}}>ADICIONAR</Button>
 					{isLiked ? (
 						<AiFillHeart
 							color="grey"
