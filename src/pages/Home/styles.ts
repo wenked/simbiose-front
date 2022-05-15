@@ -86,7 +86,10 @@ export const Container = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	margin: 0 auto;
-	width: 1350px;
+	width: 84rem;
+	@media (max-width: 1280px) {
+		width: 72rem;
+	}
 `;
 
 export const FooterContainer = styled.div<FooterContainerProps>`
@@ -107,6 +110,10 @@ export const SeeMoreButton = styled.button`
 	cursor: pointer;
 	justify-content: center;
 	align-items: center;
+
+	@media (max-width: 1280px) {
+		margin-right: 30px;
+	}
 `;
 
 export const Title = styled.h1`

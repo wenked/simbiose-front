@@ -21,7 +21,7 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({
 		<Container>
 			{paginationRange?.map((page: number | string, index: number) => {
 				if (page === "...") {
-					return <div>...</div>;
+					return <div key={index}>...</div>;
 				}
 
 				return (
