@@ -11,10 +11,13 @@ import {
 	FooterContainer,
 	SeeMoreButton,
 	Title,
+	MainContainer,
 } from "./styles";
 import { MdOutlineNavigateNext, MdNavigateBefore } from "react-icons/md";
 import PaginationComponent from "../../components/PaginationComponent";
 import { BsPlus, BsDash } from "react-icons/bs";
+import Loading from "../../components/Loading";
+import { AxiosError } from "axios";
 
 type Props = {
 	children?: React.ReactNode;
@@ -23,7 +26,7 @@ type Props = {
 const Home: React.FC<Props> = () => {
 	const [page, setPage] = useState(1);
 	const [seeMore, setSeeMore] = useState(false);
-	const { isLoading, isError, data, isPreviousData } = useQuery(
+	const { isLoading, isError, data, isPreviousData, error } = useQuery(
 		["todos", page, seeMore],
 		() => {
 			if (!seeMore) {
@@ -36,13 +39,18 @@ const Home: React.FC<Props> = () => {
 	);
 
 	if (isError) {
-		return <div>Error</div>;
+		const axiosError = error as AxiosError | Error;
+
+		return <div>Error: {axiosError?.message}</div>;
 	}
 
 	return (
-		<div>
+		<MainContainer isLoading={isLoading}>
 			{isLoading ? (
-				<div>Loading...</div>
+				<>
+					<Loading />
+					<span>Carregando...</span>
+				</>
 			) : (
 				<Container>
 					<Title>Ver outros projetos do Proponente</Title>
@@ -97,7 +105,7 @@ const Home: React.FC<Props> = () => {
 					</FooterContainer>
 				</Container>
 			)}
-		</div>
+		</MainContainer>
 	);
 };
 

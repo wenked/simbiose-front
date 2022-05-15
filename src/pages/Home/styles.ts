@@ -8,6 +8,10 @@ interface FooterContainerProps {
 	seeMore: boolean;
 }
 
+interface MainContainerProps {
+	isLoading: boolean;
+}
+
 export const ButtonContainer = styled.div<ButtonContainerProps>`
 	${({ direction }) =>
 		direction === "back"
@@ -50,6 +54,26 @@ export const NextButton = styled.button`
 			opacity: 0.6;
 		}
 	}
+`;
+
+export const MainContainer = styled.div<MainContainerProps>`
+	${({ isLoading }) => {
+		if (isLoading) {
+			return css`
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 100px;
+				span {
+					font-size: 30px;
+					font-weight: 400;
+					color: grey;
+				}
+			`;
+		}
+		return ``;
+	}}
 `;
 
 export const ContentContainer = styled.div`
