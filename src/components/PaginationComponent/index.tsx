@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, PageButton } from "./styles";
 import { BsCircle, BsCircleFill } from "react-icons/bs";
-import { BsThreeDots } from "react-icons/bs";
+
 import { usePagination } from "../../hooks/usePagination";
 
 interface PaginationComponentProps {
@@ -15,15 +15,15 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({
 	totalPages,
 	currentPage,
 }) => {
-	const paginationRange = usePagination({ totalPages, currentPage, siblingCount: 1 });
+	const paginationRange = usePagination({ totalPages, currentPage, siblingCount: 4 });
 
 	return (
 		<Container>
 			{paginationRange?.map((page: number | string, index: number) => {
 				if (page === "...") {
-					return <BsThreeDots color="grey" />;
+					return <div>...</div>;
 				}
-				console.log(page, currentPage);
+
 				return (
 					<PageButton
 						key={index}
@@ -32,6 +32,7 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({
 						}}
 					>
 						{page === currentPage ? <BsCircleFill color="grey" /> : <BsCircle color="grey" />}
+						<span>{page}</span>
 					</PageButton>
 				);
 			})}

@@ -16,4 +16,7 @@ export const PageButton = styled.button`
 	border: none;
 	background: transparent;
 	cursor: pointer;
+	span {
+		color: lightgray;
+	}
 `;
